@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import Cookies from 'js-cookie';
+import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
