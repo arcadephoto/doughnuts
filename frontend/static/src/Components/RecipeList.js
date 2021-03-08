@@ -1,11 +1,9 @@
 import React, {Component} from 'react'
 import Cookies from 'js-cookie';
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import RecipeList from './Components/RecipeList'
 
 
-class App extends Component{
+class RecipeList extends Component{
     constructor (props){
           super(props);
           this.state = {
@@ -15,7 +13,11 @@ class App extends Component{
 
 }
 
-
+componentDidMount(){
+    fetch("/recipes/")
+      .then(response => response.json())
+      .then(response => this.setState({data: response}));
+            }
 
 
 
@@ -23,15 +25,21 @@ render() {
 
 
 
+const recipeList = this.state.data.map((data) => (
+  <div className="card col-2" key={data.id}>
+  <h3>{data.title}</h3>
+  <p>{data.body}</p></div>
+))
+
 
   return (
     <div className="container">
     <div className="row">
-      <RecipeList />
+      {recipeList}
       </div>
     </div>
   );
 }
 }
 
-export default App;
+export default RecipeList;
