@@ -46,6 +46,7 @@ INSTALLED_APPS = [
 
 
     'recipes.apps.RecipesConfig',
+    'frontend.apps.Frontend.Config',
 
 ]
 
