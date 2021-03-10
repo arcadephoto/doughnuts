@@ -12,6 +12,7 @@ from .serializers import RecipeSerializer
 class RecipeListView(generics.ListAPIView):
     queryset = Recipe.objects.all()
     serializer_class = RecipeSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 class RecipeCreateAPIView(generics.CreateAPIView):
 
@@ -21,6 +22,7 @@ class RecipeCreateAPIView(generics.CreateAPIView):
 class RecipeDetailView(generics.RetrieveAPIView):
     queryset = Recipe.objects.all()
     serializer_class = RecipeSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 class RecipeRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
 

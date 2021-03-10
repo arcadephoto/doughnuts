@@ -39,11 +39,9 @@ reset(){
     const data = await response.json().catch(handleError);
     if(data.key) {
     Cookies.set('Authorization', `Token ${data.key}`);
-    this.props.setUser(data.username)
-    localStorage.setItem("user", data.username)
-    localStorage.setItem("id", data.id)
-    this.reset();
+    localStorage.setItem('user', data.username)
     }
+    this.reset();
   }
 
 

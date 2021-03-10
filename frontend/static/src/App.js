@@ -10,6 +10,7 @@ import Login from './Components/Login'
 import RecipeForm from './Components/RecipeForm'
 import LeftNav from './Components/LeftNav'
 import RecipeDetail from './Components/RecipeDetail'
+import LogOut from './Components/LogOut'
 
 
 class App extends Component{
@@ -21,6 +22,12 @@ class App extends Component{
             activeId: "",
           }
 this.expandRecipe = this.expandRecipe.bind(this);
+}
+
+componentDidMount(){
+  if (localStorage.getItem('user') === true ){
+    this.setState({isLoggedIn: true})
+  }
 }
 
 
@@ -51,6 +58,7 @@ render() {
       <Route path="/recipes/" children={<RecipeList expandRecipe = {this.expandRecipe} state={this.state}/>}/>
       <Route path="/profiles/" component={Register}/>
       <Route path="/login/" component={Login}/>
+      <Route path="/logout/" component={LogOut}/>
       </Switch>
     </React.Fragment>
     </div>

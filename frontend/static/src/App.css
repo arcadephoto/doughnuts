@@ -1,6 +1,5 @@
 .container{
   font-family: 'Times New Roman', serif;
-  height: 150vh;
 }
 
 
@@ -21,7 +20,7 @@ a {
   color: lightgray;
 }
 
-a:link, a:active, a:visited{
+a:link, a:active, a:visited, a:hover{
   text-decoration: none;
   color: gray;
 }
@@ -39,4 +38,20 @@ a:link, a:active, a:visited{
   width: 400px;
   border: 1px solid lightgray;
   box-shadow: 5px 5px 5px lightgray;
+}
+.logOutText{
+  padding: 20px;
+  font-size: large;
+  height: 300px;
+  width: 800px;
+  border: 1px solid lightgray;
+  box-shadow: 5px 5px 5px lightgray;
+}
+
+.listHead{
+cursor: pointer;
+color: gray;
+font-size: small;
+height: 20px;
+padding-left: 10px;
 }
