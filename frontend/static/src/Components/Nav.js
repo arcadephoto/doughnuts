@@ -15,8 +15,8 @@ class Nav extends Component {
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
     <div className="container-fluid">
     <NavLink to="/recipes/">Recipes</NavLink>
-    <NavLink to="/recipes/">Archives</NavLink>
     <NavLink to="/recipes/">My Recipes</NavLink>
+    <NavLink to="/recipes/add/">Add Recipe</NavLink>
     <NavLink to="/profiles/">Profile</NavLink>
     <NavLink to="/login/">Login</NavLink>
     </div>
