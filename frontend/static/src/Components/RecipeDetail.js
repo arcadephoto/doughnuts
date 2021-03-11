@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import riot from '../riot.jpg'
 
 
 class RecipeDetail extends Component{
@@ -23,6 +24,7 @@ componentDidMount(){
 
 render() {
 const data = this.state.data
+const recipePhoto = <img className="recipePhoto" src={riot} alt="food"/>
 const recipeDetail =
   <div className="recipeCard"><h4>{data.title}</h4>
   <p>Author: {data.author}</p>
@@ -37,8 +39,12 @@ const recipeDetail =
 
 
   return (
-    <div className="container">
+    <div className="row">
+    <div className="col-4">
+    {recipePhoto}</div>
+    <div className="col-4">
       {recipeDetail}
+      </div>
       </div>
   );
 }

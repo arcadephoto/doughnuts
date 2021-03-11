@@ -1,12 +1,12 @@
 .container{
   font-family: 'Times New Roman', serif;
   box-shadow: 5px 5px 5px gray;
-  background-image: linear-gradient(azure, honeydew);
+  background-image: linear-gradient(ghostwhite, lightgray);
 }
 .titleBar{
   font-style: italic;
   text-shadow: 3px 3px 3px darkgray;
-  background-image: linear-gradient(whitesmoke, lightgray);
+  background-image: linear-gradient(ghostwhite, lightgray);
 }
 
 .card {
@@ -55,7 +55,7 @@ a:hover{
 }
 
 .vertNav{
-  background-color: lightgray;
+  background-image: linear-gradient(whitesmoke, lightgray);
   margin-left: 20px;
   text-align: center;
   text-shadow: 2px 2px 2px darkgray;
@@ -73,10 +73,12 @@ a:hover{
 
 
 .recipeCard{
+  padding: 15px;
   height: 600px;
   width: 400px;
-  border: 1px solid lightgray;
-  box-shadow: 5px 5px 5px lightgray;
+  border: 3px solid black;
+  box-shadow: 5px 5px 5px darkgray;
+  border-radius: 5px;
 }
 .logOutText{
   padding: 20px;
@@ -130,4 +132,14 @@ padding-left: 10px;
 
 .dropdown-toggle{
   margin-left: 10px;
+}
+#navContainer{
+  padding-left: 100px;
+}
+
+.recipePhoto{
+  box-shadow: 5px 5px 5px darkgray;
+  width: 100%;
+  border: 3px solid black;
+  border-radius: 5px;
 }
