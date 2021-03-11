@@ -45,7 +45,9 @@ class Recipe(models.Model):
     amount = models.IntegerField(default=4)
     units = models.CharField(max_length=255, null=True, default="servings")
     notes = models.TextField(null=True, default="This recipe site is great!")
-    ingredientList = models.JSONField(null=True)
+    weightScale = models.CharField(max_length=255, null=True, default="ounces")
+    ingredientList = models.TextField(null=True)
+    profile_picture = models.ImageField(upload_to='recipes/', null=True)
 
 
 

@@ -60,7 +60,7 @@ const loginForm = (<form onSubmit={(e) => this.handleLogin(e, this.state)}>
       </form>)
 
       return(
-        <div>
+        <div className="loginForm">
         {loginForm}
         </div>
       );

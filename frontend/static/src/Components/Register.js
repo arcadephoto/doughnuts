@@ -53,9 +53,13 @@
           <p><button className="btn" type="submit">Register</button></p>
           </form>)
 
+
+
+    const registerWelcome = <p>Welcome! Please register to create a profile and submit recipes.</p>
           return(
-            <div>
+            <div className="registerForm">
             {registerForm}
+            {registerWelcome}
             </div>
           );
         }

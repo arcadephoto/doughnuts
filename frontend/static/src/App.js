@@ -46,6 +46,8 @@ render() {
   return (
     <div className="container">
     <div className="row-12">
+    <h1 className="titleBar">The Bake Hole!</h1></div>
+    <div className="row-12">
     <Nav />
     </div>
     <div className="row">

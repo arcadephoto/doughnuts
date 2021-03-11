@@ -1,26 +1,55 @@
 .container{
   font-family: 'Times New Roman', serif;
+  box-shadow: 5px 5px 5px gray;
+  background-image: linear-gradient(azure, honeydew);
+}
+.titleBar{
+  font-style: italic;
+  text-shadow: 3px 3px 3px darkgray;
+  background-image: linear-gradient(whitesmoke, lightgray);
 }
 
-
 .card {
+  justify-content: center;
   height: 110px;
   width: 110px;
   margin: 10px;
   text-align: center;
   font-size: small;
+  background-image: url('./riot.jpg');
+  background-size: cover;
+  box-shadow: 3px 3px 3px darkgray;
 }
+
 
 .card:hover{
 cursor: pointer;
 }
 
-a {
+.card p, h6{
   text-decoration: none;
-  color: lightgray;
+  color: white;
+  text-shadow: 2px 2px 2px black;
+  font-weight: bolder;
 }
 
-a:link, a:active, a:visited, a:hover{
+
+a:link{
+  text-decoration: none;
+  color: gray;
+}
+
+a:active{
+  text-decoration: none;
+  color: gray;
+}
+
+a:visited{
+  text-decoration: none;
+  color: gray;
+}
+
+a:hover{
   text-decoration: none;
   color: gray;
 }
@@ -29,10 +58,20 @@ a:link, a:active, a:visited, a:hover{
   background-color: lightgray;
   margin-left: 20px;
   text-align: center;
+  text-shadow: 2px 2px 2px darkgray;
+  padding-top: 60px;
+  font-style: italic;
+  box-shadow: 5px 5px 5px darkgray;
 }
+
 .vertNav p{
-  margin-top: 40px;
+  color: gray;
+  font-style: italic;
+  margin-top: 80px;
+
 }
+
+
 .recipeCard{
   height: 600px;
   width: 400px;
@@ -61,4 +100,34 @@ padding-left: 10px;
 .addRecipeForm{
   margin: 0 auto;
   width: 500px;
+  box-shadow: 5px 5px 5px darkgray;
+}
+
+.navbar{
+  font-size: x-large;
+  text-shadow: 2px 2px 2px darkgray;
+  font-weight: bolder;
+
+}
+
+.loginForm{
+  margin: 0 auto;
+  width: 500px;
+}
+
+.registerForm{
+  margin: 0 auto;
+  width: 500px;
+}
+
+.buttonRow{
+  text-align: center;
+}
+
+.buttonRow .btn{
+  margin: 0px 10px 0px 10px;
+}
+
+.dropdown-toggle{
+  margin-left: 10px;
 }

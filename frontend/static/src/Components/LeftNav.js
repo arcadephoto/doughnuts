@@ -13,10 +13,10 @@ class LeftNav extends Component{
 
 render() {
 
-const leftNavTitles = <div><p>My Recipes</p><br/><p>Public Recipes</p><br/><p>Popular Recipes</p><br/><p>Favorite Recipes</p><br/><p>My Pantry</p><br/></div>
+const leftNavTitles = <div><a href="/recipes/">My Recipes</a><br/><p>Public Recipes</p><br/><p>Popular Recipes</p><br/><p>Favorite Recipes</p><br/><p>My Pantry</p><br/></div>
 
   return (
-    <div className="container">
+    <div>
 
       {leftNavTitles}
       </div>

@@ -10,9 +10,15 @@ from .serializers import RecipeSerializer
 
 
 class RecipeListView(generics.ListAPIView):
-    queryset = Recipe.objects.all()
+    # queryset = Recipe.objects.all()
     serializer_class = RecipeSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+    def get_queryset(self):
+        category = self.request.query_params.get('category', None)
+        if category:
+            return Recipe.objects.filter(category=category)
+        return Recipe.objects.all()
 
 class RecipeCreateAPIView(generics.CreateAPIView):
 
