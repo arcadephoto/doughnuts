@@ -19,6 +19,7 @@ class RecipeForm extends Component{
             ingredient: "",
             ingredientList: [],
             value: "",
+            qty: "",
 
           }
           this.handleInput = this.handleInput.bind(this);
@@ -83,7 +84,7 @@ render() {
         <input className="input-group form-control" type="text" placeholder="Recipe Author" name="author" value={this.state.author} onChange={this.handleInput}/>
         <input className="input-group form-control" type="text" placeholder="Prep Time" name="preptime" value={this.state.preptime} onChange={this.handleInput}/>
         <input className="input-group form-control" type="text" placeholder="Cook Time" name="cooktime" value={this.state.cooktime} onChange={this.handleInput}/>
-            <form className="input-group form-control">
+            <section className="input-group form-control">
                 <label >
                   Temp Scale
                   <select className="btn-sm btn-secondary dropdown-toggle" value={this.state.value} onChange={this.handleChange}>
@@ -92,7 +93,7 @@ render() {
                     <option value="kelvin">Kelvin</option>
                   </select>
                 </label>
-                </form>
+                </section>
         <input className="input-group form-control" type="text" placeholder="Cook Temp" name="cooktemp" value={this.state.cooktemp} onChange={this.handleInput}/>
         <input className="input-group form-control" type="text" placeholder="Total Yield" name="amount" value={this.state.amount} onChange={this.handleInput}/>
         <input className="input-group form-control" type="text" placeholder="Units" name="units" value={this.state.units} onChange={this.handleInput}/>
@@ -104,9 +105,11 @@ render() {
 
   return (
     <div className="container">
+    <div className="addRecipeForm">
     {submitForm}
     {ingredientWindow}
     {ingredientInput}
+    </div>
     </div>
   );
 }

@@ -45,7 +45,7 @@ class Recipe(models.Model):
     amount = models.IntegerField(default=4)
     units = models.CharField(max_length=255, null=True, default="servings")
     notes = models.TextField(null=True, default="This recipe site is great!")
-    ingredientList = models.TextField(null=True)
+    ingredientList = models.JSONField(null=True)
 
 
 

@@ -101,7 +101,7 @@ const pantryListHead = <p onClick={this.seeAll}>Pantry Recipes -----------------
       {favoriteRecipes}
       </div>
       <div className="row listHead">
-        {favoriteListHead}
+        {pantryListHead}
         </div>
       <div className="row">
       {pantryRecipes}
