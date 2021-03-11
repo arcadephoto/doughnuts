@@ -3,7 +3,7 @@ from rest_framework import serializers
 from .models import Recipe
 
 class RecipeSerializer(serializers.ModelSerializer):
-    pass
+    author = serializers.ReadOnlyField(source='author.username')
 
     class Meta:
         model = Recipe

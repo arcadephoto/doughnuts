@@ -134,7 +134,7 @@ render() {
 
 
 
-  const ingredientInput = <section className="ingredientForm">
+  const ingredientInput = <form onSubmit={this.handleSubmit} className="ingredientForm">
           <input placeholder="Qty" name="qty" value={this.state.qty} className="input-group form-control" onChange={this.handleInput}></input>
           <input className="input-group form-control" type="text" placeholder="Add an ingredient" name="ingredient" value={this.state.ingredient} onChange={this.handleInput}></input>
           <section className="input-group form-control">
@@ -151,7 +151,7 @@ render() {
           <textarea className="input-group form-control" type="text" rows="4" placeholder="What directions go with this step?" name="directions" value={this.state.directions} onChange={this.handleInput}></textarea>
           <div className="buttonRow"><button className="btn btn-secondary" onClick={this.addIngredient}>Add Ingredient</button><button className="btn btn-secondary" onClick={this.addStep}>Add another step</button>
           <button className="btn btn-secondary" type="submit">Save this Recipe!</button></div>
-          </section>
+          </form>
   const ingredientWindow = <p><textarea readOnly className="form-control" type="text" placeholder="Ingredient List" name="ingredientList" value={this.state.ingredientList}/></p>
 
 
@@ -159,7 +159,6 @@ render() {
   const submitForm = (<form onSubmit={this.handleSubmit}>
 
         <input className="input-group form-control" type="text" placeholder="Recipe Name" name="title" value={this.state.title} onChange={this.handleInput}/>
-        <input className="input-group form-control" type="text" placeholder="Recipe Author" name="author" value={this.state.author} onChange={this.handleInput}/>
         <input className="input-group form-control" type="text" placeholder="Prep Time" name="preptime" value={this.state.preptime} onChange={this.handleInput}/>
         <input className="input-group form-control" type="text" placeholder="Cook Time" name="cooktime" value={this.state.cooktime} onChange={this.handleInput}/>
         <input className="input-group form-control" type="text" placeholder="Cook Temp" name="cooktemp" value={this.state.cooktemp} onChange={this.handleInput}/>
@@ -183,13 +182,11 @@ render() {
 
 
   return (
-    <div className="container">
     <div className="addRecipeForm">
     {photoSubmit}
     {submitForm}
     {ingredientWindow}
     {ingredientInput}
-    </div>
     </div>
   );
 }

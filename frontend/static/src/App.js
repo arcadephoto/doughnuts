@@ -19,7 +19,9 @@ class App extends Component{
           this.state = {
             isLoggedIn: !!Cookies.get('Authorization'),
             data: [],
+            username: "",
             activeId: "",
+            logOut: false,
           }
 this.expandRecipe = this.expandRecipe.bind(this);
 }
@@ -27,6 +29,7 @@ this.expandRecipe = this.expandRecipe.bind(this);
 componentDidMount(){
   if (localStorage.getItem('user') === true ){
     this.setState({isLoggedIn: true})
+    this.setState({logOut: false})
   }
 }
 
@@ -40,13 +43,13 @@ expandRecipe(data){
 
 render() {
 
-
+const welcomeUser = localStorage.getItem('user') ? <p>Welcome, {localStorage.getItem('user')}!</p> : null
 
 
   return (
     <div className="container">
     <div className="row-12">
-    <h1 className="titleBar">The Bake Hole!</h1></div>
+    <h1 className="titleBar">The Bake Hole!</h1><span className="welcomeUser">{welcomeUser}</span></div>
     <div className="row-12">
     <Nav />
     </div>
@@ -60,7 +63,7 @@ render() {
       <Route path="/recipes/" children={<RecipeList expandRecipe = {this.expandRecipe} state={this.state}/>}/>
       <Route path="/profiles/" component={Register}/>
       <Route path="/login/" component={Login}/>
-      <Route path="/logout/" component={LogOut}/>
+      <Route path="/logout/" children={<LogOut logOut={this.state.logOut}/>}/>
       </Switch>
     </React.Fragment>
     </div>

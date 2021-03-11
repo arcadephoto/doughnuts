@@ -1,4 +1,6 @@
 from django.db import models
+from django.conf import settings
+
 
 # Create your models here.
 class Recipe(models.Model):
@@ -35,7 +37,7 @@ class Recipe(models.Model):
 
 
     title = models.CharField(max_length=255, null=True)
-    author = models.CharField(max_length=255, null=True)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=True)
     body = models.TextField(null=True)
     public = models.BooleanField(default=True)
     preptime = models.IntegerField(default=60)
@@ -60,5 +62,5 @@ class Recipe(models.Model):
         choices=CATEGORIES,
         default=ALL, null=True)
 
-    def __str__(self):
-        return self.title + str(self.id)
+    # def __str__(self):
+    #     return self.title + str(self.id)

@@ -39,7 +39,8 @@ reset(){
     const data = await response.json().catch(handleError);
     if(data.key) {
     Cookies.set('Authorization', `Token ${data.key}`);
-    localStorage.setItem('user', data.username)
+    localStorage.setItem('user', this.state.username)
+    console.log(data)
     }
     this.reset();
   }
@@ -56,7 +57,7 @@ reset(){
 const loginForm = (<form onSubmit={(e) => this.handleLogin(e, this.state)}>
       <input className="input-group" type="text" placeholder="username" name="username" value={this.state.username} onChange={this.handleInput}/>
       <input className="input-group" type="password" placeholder="password" name="password" value={this.state.password} onChange={this.handleInput}/>
-      <p><button className="btn" type="submit">Log In</button></p>
+      <button className="btn" type="submit">Log In</button>
       </form>)
 
       return(

@@ -5,6 +5,6 @@ from .models import Profile
 
 class ProfileSerializer(serializers.ModelSerializer):
 
-    class Meta:
-        model = Profile
-        fields = ('id', 'profile_picture', 'user')
+        class Meta:
+            model = Profile
+            fields = '__all__'

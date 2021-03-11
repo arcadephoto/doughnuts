@@ -8,10 +8,13 @@ class LogOut extends Component{
     constructor (props){
           super(props);
           this.state = {
+          isLoggedIn: "",
           }
 }
 
-componentDidMount(){
+
+
+handleLogout(){
   const options = {
         method: 'POST',
         headers: {
@@ -23,16 +26,24 @@ componentDidMount(){
       .then(response => response.json())
       .then(response => this.setState({data: response}));
       Cookies.remove('Authorization');
-            }
+      localStorage.removeItem('user')
+      window.location.reload();
+
+
+}
+
 
 render() {
 
-const logoutLink = <p className="logOutText">Logged out. Thank you for using My Overly Complicated Batch Making Application for Bakers.
+
+const logoutLink = <div className="logOutText">Logged out. Thank you for using My Overly Complicated Batch Making Application for Bakers.
 To see our newest inescapable pop-ups or to sign up for our relentlessly pushy mailing list please visit us at
-overlycomplicatedbatchmakingapplicationforbakers.tv/signup/authorize/sign_up/join/</p>
+overlycomplicatedbatchmakingapplicationforbakers.tv/signup/authorize/sign_up/join/<br/>
+<button className="btn btn-secondary" onClick={this.handleLogout}>Log Out</button>
+</div>
 
   return (
-    <div className="container">
+    <div>
       {logoutLink}
       </div>
   );
