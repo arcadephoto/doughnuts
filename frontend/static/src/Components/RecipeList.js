@@ -22,40 +22,40 @@ componentDidMount(){
 
 
 render() {
-
+console.log(this.state.data)
 const recipeList = this.state.data.map((data) => (
   <a href={`/recipes/${data.id}`} className="card" key={data.id}>
+  <img className="foodPhoto" src={data.profile_picture} alt="food"/>
   <h6>{data.title}</h6>
-  <p>{data.type}</p>
   </a>
 ))
 
 const publicRecipes = this.state.data.filter(data => data.category === 'Public').map((data)=> (
   <a href={`/recipes/${data.id}`} className="card" key={data.id}>
+  <img className="foodPhoto" src={data.profile_picture} alt="food"/>
   <h6>{data.title}</h6>
-  <p>{data.type}</p>
   </a>
 ))
 
 const popularRecipes = this.state.data.filter(data => data.category === 'Popular').map((data)=> (
   <a href={`/recipes/${data.id}`} className="card" key={data.id}>
+  <img className="foodPhoto" src={data.profile_picture} alt="food"/>
   <h6>{data.title}</h6>
-  <p>{data.type}</p>
   </a>
 ))
 
 const favoriteRecipes = this.state.data.filter(data => data.category === 'Favorite').map((data)=> (
   <a href={`/recipes/${data.id}`} className="card" key={data.id}>
+  <img className="foodPhoto" src={data.profile_picture} alt="food"/>
   <h6>{data.title}</h6>
-  <p>{data.type}</p>
   </a>
 ))
 
 
 const pantryRecipes = this.state.data.filter(data => data.category === 'Pantry').map((data)=> (
   <a href={`/recipes/${data.id}`} className="card" key={data.id}>
+  <img className="foodPhoto" src={data.profile_picture} alt="food"/>
   <h6>{data.title}</h6>
-  <p>{data.type}</p>
   </a>
 ))
 

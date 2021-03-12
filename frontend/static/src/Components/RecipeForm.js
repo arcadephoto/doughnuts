@@ -135,8 +135,8 @@ render() {
 
 
   const ingredientInput = <form onSubmit={this.handleSubmit} className="ingredientForm">
-          <input placeholder="Qty" name="qty" value={this.state.qty} className="input-group form-control" onChange={this.handleInput}></input>
           <input className="input-group form-control" type="text" placeholder="Add an ingredient" name="ingredient" value={this.state.ingredient} onChange={this.handleInput}></input>
+          <input placeholder="Qty" name="qty" value={this.state.qty} className="input-group form-control" onChange={this.handleInput}></input>
           <section className="input-group form-control">
               <label >
                 Weight Scale

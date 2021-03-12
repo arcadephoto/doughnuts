@@ -62,5 +62,5 @@ class Recipe(models.Model):
         choices=CATEGORIES,
         default=ALL, null=True)
 
-    # def __str__(self):
-    #     return self.title + str(self.id)
+    def __str__(self):
+        return self.title + str(self.id)

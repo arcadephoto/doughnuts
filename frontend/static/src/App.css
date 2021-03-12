@@ -16,7 +16,7 @@
   margin: 10px;
   text-align: center;
   font-size: small;
-  background-image: url('./riot.jpg');
+  /* background-image: url('./riot.jpg'); */
   background-size: cover;
   box-shadow: 3px 3px 3px darkgray;
 }
@@ -31,6 +31,7 @@ cursor: pointer;
   color: white;
   text-shadow: 2px 2px 2px black;
   font-weight: bolder;
+  position: absolute;
 }
 
 
@@ -121,7 +122,7 @@ padding-left: 10px;
 
 .registerForm{
   margin: 0 auto;
-  width: 500px;
+  width: 300px;
 }
 
 .buttonRow{
@@ -144,4 +145,9 @@ padding-left: 10px;
   width: 100%;
   border: 3px solid black;
   border-radius: 5px;
+}
+
+.foodPhoto{
+  height: 70px;
+  object-fit: fill;
 }

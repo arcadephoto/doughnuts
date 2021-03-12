@@ -46,20 +46,18 @@
         render(){
 
     const registerForm = (<form onSubmit={(e) => this.handleRegistration(e, this.state)}>
+          <p>Welcome! Please register to create a profile and submit recipes</p>
           <input className="input-group form-control" type="text" placeholder="username" name="username" value={this.state.username} onChange={this.handleInput}/>
           <input className="input-group form-control" type="email" placeholder="email" name="email" value={this.state.email} onChange={this.handleInput}/>
           <input className="input-group form-control" type="password" placeholder="password" name="password1" value={this.state.password1} onChange={this.handleInput}/>
           <input className="input-group form-control" type="password" placeholder="confirm pass" name="password2" value={this.state.password2} onChange={this.handleInput}/>
-          <p><button className="btn" type="submit">Register</button></p>
+          <p><button className="btn btn-secondary" type="submit">Register</button></p>
           </form>)
 
 
-
-    const registerWelcome = <p>Welcome! Please register to create a profile and submit recipes.</p>
           return(
             <div className="registerForm">
-            {registerForm}
-            {registerWelcome}
+            {this.state.isLoggedIn === true || localStorage.getItem('user') ? registerForm : null}
             </div>
           );
         }
