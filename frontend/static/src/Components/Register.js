@@ -57,7 +57,7 @@
 
           return(
             <div className="registerForm">
-            {this.state.isLoggedIn === true || localStorage.getItem('user') ? registerForm : null}
+            {this.state.isLoggedIn === false || !localStorage.getItem('user') ? registerForm : null}
             </div>
           );
         }

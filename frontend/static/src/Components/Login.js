@@ -62,7 +62,7 @@ const loginForm = (<form onSubmit={(e) => this.handleLogin(e, this.state)}>
 
       return(
         <div className="loginForm">
-        {this.state.isLoggedIn === false || !localStorage.getItem('user') ? loginForm : null}
+        {this.state.isLoggedIn === false || !localStorage.getItem('user') ? loginForm : `You're logged in, ${localStorage.getItem('user')}. Awesome!`}
         </div>
       );
     }

@@ -38,7 +38,7 @@ class Recipe(models.Model):
 
     title = models.CharField(max_length=255, null=True)
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=True)
-    body = models.TextField(null=True)
+    body = models.TextField(null=True, default="Add stuff and cook")
     public = models.BooleanField(default=True)
     preptime = models.IntegerField(default=60)
     cooktime = models.IntegerField(default=60)
@@ -63,4 +63,4 @@ class Recipe(models.Model):
         default=ALL, null=True)
 
     def __str__(self):
-        return self.title + str(self.id)
+        return self.title

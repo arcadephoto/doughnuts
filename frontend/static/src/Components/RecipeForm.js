@@ -17,7 +17,7 @@ class RecipeForm extends Component{
             amount: "",
             units: "",
             ingredient: "",
-            ingredientList: [],
+            ingredientList: "",
             value: "",
             qty: "",
             weightScale: "",
@@ -38,18 +38,25 @@ handleInput(event){
 
   handleChange(event) {
       this.setState({value: event.target.value});
+      console.log(this.state)
     }
 
 addIngredient(e){
   e.preventDefault();
-  const str = this.state.ingredient
-  const ing = [...this.state.ingredientList]
-  ing.push(str)
+  let str = this.state.ingredient
+  let ing = this.state.ingredientList
+  ing = `${ing} ${this.state.qty} ${this.state.weightScale}  ${str}  \n`
   this.setState({ingredientList: ing})
+  this.setState({ingredient: ""})
+  this.setState({qty: ""})
 }
 
-addStep(){
-  alert("This doesn't do anything yet")
+addStep(e){
+  e.preventDefault();
+  let step = this.state.directions
+  let str = this.state.body
+  str = `${str} ${step} \n`
+  this.setState({body: str})
 }
 
 
@@ -123,14 +130,12 @@ reader.readAsDataURL(file);
 render() {
 
 
-  const photoSubmit = <form onSubmit={this.submitPhoto}>Attach a photo!<br/><input type="file" name="profile_picture" onChange={this.handleImage}/>
-  {this.state.profile_picture && <img width="500" src={this.state.preview} alt="preview" />
-    }
-  </form>
+  const photoSubmit = <form onSubmit={this.submitPhoto}>Attach a photo<br/><input type="file" name="profile_picture" onChange={this.handleImage}/>
+                      {this.state.profile_picture && <img width="500" src={this.state.preview} alt="preview" />}
+                      </form>
 
 
-  // <button className="btn" type="submit">Save</button>
-  // <button className="btn" onClick={this.editPhoto}>Edit</button>
+
 
 
 
@@ -141,6 +146,7 @@ render() {
               <label >
                 Weight Scale
                 <select className="btn-sm btn-secondary dropdown-toggle" value={this.state.weightScale} onChange={this.handleChange}>
+                  <option value="none">Select</option>
                   <option value="ounces">Ounces</option>
                   <option value="pounds">Pounds</option>
                   <option value="grams">Grams</option>
@@ -148,11 +154,11 @@ render() {
               </label>
               </section>
 
-          <textarea className="input-group form-control" type="text" rows="4" placeholder="What directions go with this step?" name="directions" value={this.state.directions} onChange={this.handleInput}></textarea>
+          <textarea className="input-group form-control" type="text" rows="4" placeholder="Add a step to the recipe" name="directions" value={this.state.directions} onChange={this.handleInput}></textarea>
           <div className="buttonRow"><button className="btn btn-secondary" onClick={this.addIngredient}>Add Ingredient</button><button className="btn btn-secondary" onClick={this.addStep}>Add another step</button>
           <button className="btn btn-secondary" type="submit">Save this Recipe!</button></div>
           </form>
-  const ingredientWindow = <p><textarea readOnly className="form-control" type="text" placeholder="Ingredient List" name="ingredientList" value={this.state.ingredientList}/></p>
+  const ingredientWindow = <p><textarea readOnly className="form-control" type="text" placeholder="Ingredient List" name="ingredientList" rows="5" value={this.state.ingredientList}/></p>
 
 
 
@@ -175,8 +181,8 @@ render() {
 
         <input className="input-group form-control" type="text" placeholder="Total Yield" name="amount" value={this.state.amount} onChange={this.handleInput}/>
         <input className="input-group form-control" type="text" placeholder="Units" name="units" value={this.state.units} onChange={this.handleInput}/>
-        <textarea className="input-group form-control" rows="5" type="text" placeholder="Recipe Body" name="body" value={this.state.body} onChange={this.handleInput}></textarea>
-        <textarea className="input-group form-control" rows="5" type="text" placeholder="Notes" name="notes" value={this.state.notes} onChange={this.handleInput}></textarea>
+        <textarea readOnly className="input-group form-control" rows="5" type="text" placeholder="Recipe Body" name="body" value={this.state.body} onChange={this.handleInput}></textarea>
+        <textarea className="input-group form-control" rows="3" type="text" placeholder="Notes" name="notes" value={this.state.notes} onChange={this.handleInput}></textarea>
 
         </form>)
 
