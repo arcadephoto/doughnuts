@@ -1,5 +1,4 @@
-
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from rest_framework import generics
 
@@ -16,3 +15,12 @@ class ProfileListView(generics.ListCreateAPIView):
         return queryset
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
+
+class ProfileDetailView(generics.RetrieveUpdateAPIView):
+        serializer_class = ProfileSerializer
+        def get_queryset(self):
+            queryset = Profile.objects.all()
+            queryset = queryset.filter(user=self.request.user)
+            return queryset
+        def get_object(self):
+            return get_object_or_404(Profile, user=self.request.user)

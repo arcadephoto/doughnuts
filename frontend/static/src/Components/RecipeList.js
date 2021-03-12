@@ -22,7 +22,6 @@ componentDidMount(){
 
 
 render() {
-console.log(this.state.data)
 const recipeList = this.state.data.map((data) => (
   <a href={`/recipes/${data.id}`} className="card" key={data.id}>
   <img className="foodPhoto" src={data.profile_picture} alt="food"/>

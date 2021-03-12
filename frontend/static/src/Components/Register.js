@@ -13,11 +13,22 @@
             email: "",
             password1: "",
             password2: "",
+            data: [],
           }
       this.handleInput = this.handleInput.bind(this);
       this.handleRegistration = this.handleRegistration.bind(this);
       this.createProfile = this.createProfile.bind(this);
         }
+
+  componentDidMount(){
+          fetch(`/profiles/detail/`)
+          .then(response => response.json())
+          .then(response => this.setState({data: response}));
+                        }
+
+
+
+
 
     handleInput(event){
           this.setState({[event.target.name]: event.target.value});
@@ -71,6 +82,8 @@ async createProfile(){
 
         render(){
 
+          console.log(this.state.data)
+
     const registerForm = (<form onSubmit={(e) => this.handleRegistration(e, this.state)}>
           <p>Welcome! Please register to create a profile and submit recipes</p>
           <input className="input-group form-control" type="text" placeholder="username" name="username" value={this.state.username} onChange={this.handleInput}/>
@@ -81,7 +94,8 @@ async createProfile(){
           </form>)
 
     const profileForm = <div className="profileForm"><img src={profile} alt="profile silhouette"/>
-    <h3>Account: {localStorage.getItem('user')}</h3></div>
+    <h3>Account: {localStorage.getItem('user')}</h3>
+    <h5>Member Since: {this.state.data.date}</h5></div>
 
 
     const profileCreate = <div className="profileCreateForm"><button onClick={this.createProfile}>Create Profile</button></div>

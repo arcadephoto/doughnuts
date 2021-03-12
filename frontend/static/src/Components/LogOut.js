@@ -36,9 +36,9 @@ handleLogout(){
 render() {
 
 
-const logoutLink = <div className="logOutText">Logged out. Thank you for using My Overly Complicated Batch Making Application for Bakers.
-To see our newest inescapable pop-ups or to sign up for our relentlessly pushy mailing list please visit us at
-overlycomplicatedbatchmakingapplicationforbakers.tv/signup/authorize/sign_up/join/<br/>
+const logoutLink = <div className="logOutText">Thank you for using My Overly Complicated Batch Making Application for Bakers.
+To see our newest inescapable pop-ups or to sign up for our relentlessly pushy mailing list please visit us at <a href="http://web.archive.org/web/20040125013845/http://ask.com/">
+overlycomplicatedbatchmakingapplicationforbakers.tv/signup/authorize/sign_up/join/</a><br/>
 <button className="btn btn-secondary" onClick={this.handleLogout}>Log Out</button>
 </div>
 
