@@ -162,4 +162,19 @@ padding-left: 10px;
 
 .prepTimes{
   text-align: center;
+  color: slategray;
+  border: 2px solid darkgray;
+  border-style: inset;
+}
+.input-group.form-control{
+  border: 2px solid lightgray;
+  border-style: inset;
+}
+#photoForm{
+  text-shadow: 2px 2px 2px darkgray;
+  text-align: center;
+}
+
+.profileForm{
+  margin-top: 50px;
 }

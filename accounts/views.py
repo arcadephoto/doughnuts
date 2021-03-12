@@ -9,5 +9,10 @@ from .serializers import ProfileSerializer
 
 # Create your views here.
 class ProfileListView(generics.ListCreateAPIView):
-    queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
+    def get_queryset(self):
+        queryset = Profile.objects.all()
+        queryset = queryset.filter(user=self.request.user)
+        return queryset
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)

@@ -30,11 +30,6 @@ const recipeDetail =
   <p style={{fontStyle: "italic"}}>by</p>
   <p>{data.author}</p></div>
 
-const prepTimes = <div>
-  <p>Prep time: {data.preptime}min.</p>
-  <p>Cook time: {data.cooktime}min.</p>
-  <p>Cook temp: {data.cooktemp} {data.tempscale}</p>
-  </div>
 
 const instructions = <div id="instructions">
   <p>{`Makes ${data.amount} ${data.units}`}</p>
@@ -51,12 +46,16 @@ const instructions = <div id="instructions">
       {recipeDetail}
       <div className="row prepTimes">
       <div className="col">
+      <p>Prep</p>
       {data.preptime} min.</div>
       <div className="col">
+      <p>Cook</p>
       {data.cooktime} min.</div>
       <div className="col">
+      <p>Temp.</p>
       {data.cooktemp} deg.</div>
       </div>
+      <br/>
       {instructions}
       </div>
       </div>

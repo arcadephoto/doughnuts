@@ -2,6 +2,7 @@
   import React, {Component} from 'react'
   import Cookies from 'js-cookie'
   import '../App.css';
+  import profile from '../profile.png'
 
   class Register extends Component {
     constructor (props){
@@ -54,10 +55,17 @@
           <p><button className="btn btn-secondary" type="submit">Register</button></p>
           </form>)
 
+    const profileForm = <div className="profileForm"><img src={profile} alt="profile silhouette"/>
+    <h3>Account: {localStorage.getItem('user')}</h3></div>
+
+
+    const profileCreate = <div className="profileCreateForm"><button onClick={this.createProfile}>Create Profile</button></div>
+
+
 
           return(
             <div className="registerForm">
-            {this.state.isLoggedIn === false || !localStorage.getItem('user') ? registerForm : null}
+            {this.state.isLoggedIn === false || !localStorage.getItem('user') ? registerForm : profileForm}
             </div>
           );
         }

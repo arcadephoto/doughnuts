@@ -130,7 +130,7 @@ reader.readAsDataURL(file);
 render() {
 
 
-  const photoSubmit = <form onSubmit={this.submitPhoto}>Attach a photo<br/><input type="file" name="profile_picture" onChange={this.handleImage}/>
+  const photoSubmit = <form id="photoForm" onSubmit={this.submitPhoto}>Attach a photo<br/><input id="photoFileInput" type="file" name="profile_picture" onChange={this.handleImage}/>
                       {this.state.profile_picture && <img width="500" src={this.state.preview} alt="preview" />}
                       </form>
 
@@ -156,7 +156,7 @@ render() {
 
           <textarea className="input-group form-control" type="text" rows="4" placeholder="Add a step to the recipe" name="directions" value={this.state.directions} onChange={this.handleInput}></textarea>
           <div className="buttonRow"><button className="btn btn-secondary" onClick={this.addIngredient}>Add Ingredient</button><button className="btn btn-secondary" onClick={this.addStep}>Add another step</button>
-          <button className="btn btn-secondary" type="submit">Save this Recipe!</button></div>
+          <button className="btn btn-success" type="submit">Save this Recipe!</button></div>
           </form>
   const ingredientWindow = <p><textarea readOnly className="form-control" type="text" placeholder="Ingredient List" name="ingredientList" rows="5" value={this.state.ingredientList}/></p>
 
