@@ -1,9 +1,20 @@
 from django.shortcuts import render, get_object_or_404
+from django.contrib.auth import get_user_model
 
 from rest_framework import generics
 
 from .models import Profile
-from .serializers import ProfileSerializer
+from .serializers import ProfileSerializer, UserDetailSerializer
+
+User = get_user_model()
+
+
+class UserDetailView(generics.RetrieveAPIView):
+    serializer_class = UserDetailSerializer
+    # queryset = User.objects.all()
+    def get_object(self):
+        return self.request.user
+
 
 
 # Create your views here.

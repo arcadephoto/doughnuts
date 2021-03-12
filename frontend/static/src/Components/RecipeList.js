@@ -80,31 +80,31 @@ const pantryListHead = <p onClick={this.seeAll}>Pantry Recipes -----------------
     <div className="row listHead">
       {recipeListHead}
       </div>
-      <div className="row">
+      <div className="row recipeRow">
       {recipeList}
       </div>
       <div className="row listHead">
       {publicListHead}
       </div>
-      <div className="row">
+      <div className="row recipeRow">
       {publicRecipes}
       </div>
       <div className="row listHead">
         {popularListHead}
         </div>
-      <div className="row">
+      <div className="row recipeRow">
       {popularRecipes}
       </div>
       <div className="row listHead">
         {favoriteListHead}
         </div>
-      <div className="row">
+      <div className="row recipeRow">
       {favoriteRecipes}
       </div>
       <div className="row listHead">
         {pantryListHead}
         </div>
-      <div className="row">
+      <div className="row recipeRow">
       {pantryRecipes}
       </div>
       </div>

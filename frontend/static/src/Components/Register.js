@@ -22,9 +22,9 @@
         }
 
   componentDidMount(){
-          fetch(`/profiles/detail/`)
+          fetch(`/accounts/detail/`)
           .then(response => response.json())
-          .then(response => this.setState({data: response}));
+          .then(response => this.setState({data: response, hasProfile: true}));
                         }
 
 
@@ -92,9 +92,12 @@ async createProfile(){
           <p><button className="btn btn-secondary" type="submit">Register</button></p>
           </form>)
 
+          const date = this.state.data.date
+          const newDate = new Date(date)
+
     const profileForm = <div className="profileForm"><img src={profile} alt="profile silhouette"/>
     <h3>Account: {localStorage.getItem('user')}</h3>
-    <h5>Member Since: {this.state.data.date}</h5></div>
+    <h5>Member Since: {newDate.toDateString()}</h5></div>
 
 
     const profileCreate = <div className="profileCreateForm"><button className="btn btn-secondary" onClick={this.createProfile}>Create Profile</button></div>

@@ -161,7 +161,7 @@ render() {
               </section>
 
           <textarea className="input-group form-control" type="text" rows="4" placeholder="Add a step to the recipe" name="directions" value={this.state.directions} onChange={this.handleInput}></textarea>
-          <div className="buttonRow"><button className="btn btn-secondary" onClick={this.addIngredient}>Add Ingredient</button><button className="btn btn-secondary" onClick={this.addStep}>Add another step</button>
+          <div className="buttonRow"><button className="btn btn-light" onClick={this.addIngredient}>Add Ingredient</button><button className="btn btn-light" onClick={this.addStep}>Add another step</button>
           <button className="btn btn-success" type="submit">Save this Recipe!</button></div>
           </form>
   const ingredientWindow = <p><textarea readOnly className="form-control" type="text" placeholder="Ingredient List" name="ingredientList" rows="5" value={this.state.ingredientList}/></p>

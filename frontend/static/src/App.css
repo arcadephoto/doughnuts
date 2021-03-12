@@ -1,12 +1,13 @@
 .container{
   font-family: Tahoma, Helvetica, sans-serif;
   box-shadow: 5px 5px 5px 5px gray;
-  background-image: linear-gradient(ghostwhite, lightgray);
+  background-image: linear-gradient(ghostwhite, wheat);
 }
+
 .titleBar{
   font-style: italic;
   text-shadow: 3px 3px 3px darkgray;
-  background-image: linear-gradient(ghostwhite, lightgray);
+  background-image: linear-gradient(navy, antiquewhite);
 }
 
 .card {
@@ -15,9 +16,6 @@
   width: 110px;
   margin: 10px;
   text-align: center;
-  font-size: small;
-  /* background-image: url('./riot.jpg'); */
-  background-size: cover;
   box-shadow: 3px 3px 3px darkgray;
 }
 
@@ -27,12 +25,14 @@ cursor: pointer;
 opacity: 50%;
 }
 
-.card p, h6{
+.card h6{
   text-decoration: none;
   color: white;
-  text-shadow: 2px 2px 2px black;
+  text-shadow: 2px 2px 2px gray;
   font-weight: bolder;
   position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 
@@ -43,17 +43,17 @@ a:link{
 
 a:active{
   text-decoration: none;
-  color: gray;
+  color: navy;
 }
 
 a:visited{
   text-decoration: none;
-  color: gray;
+  color: navy;
 }
 
 a:hover{
   text-decoration: none;
-  color: gray;
+  color: ghostwhite;
 }
 
 .navbar a:link{
@@ -67,7 +67,7 @@ a:hover{
   color: lightgray;
 }
 .vertNav{
-  background-image: linear-gradient(whitesmoke, lightgray);
+  background-image: linear-gradient(white, antiquewhite);
   margin-left: 20px;
   text-align: center;
   text-shadow: 2px 2px 2px darkgray;
@@ -77,7 +77,7 @@ a:hover{
 }
 
 .vertNav a{
-  color: gray;
+  color: navy;
   font-style: italic;
 }
 
@@ -92,6 +92,7 @@ a:hover{
 
 .navBox a:link{
   text-decoration: none;
+  color: navy;
 }
 
 .navBox a:hover{
@@ -99,7 +100,7 @@ a:hover{
 }
 
 .recipeCard{
-  background-image: linear-gradient(whitesmoke, lightgray);
+  background-image: linear-gradient(white, antiquewhite);
   padding: 15px;
   height: 600px;
   width: 400px;
@@ -129,7 +130,8 @@ cursor: pointer;
 color: gray;
 font-size: small;
 height: 20px;
-padding-left: 10px;
+padding-left: 30px;
+margin-left: 30px;
 }
 
 
@@ -141,6 +143,7 @@ padding-left: 10px;
 }
 
 .navbar{
+  background-color: ghostwhite;
   font-size: x-large;
   text-shadow: 2px 2px 2px darkgray;
   font-weight: bolder;
@@ -169,18 +172,19 @@ padding-left: 10px;
   margin-left: 10px;
 }
 #navContainer{
+  background-color: ghostwhite;
   padding-left: 100px;
 }
 
 .recipePhoto{
   box-shadow: 5px 5px 5px darkgray;
-  width: 100%;
   border: 3px solid black;
   border-radius: 5px;
+  width: 100%;
 }
 
 .foodPhoto{
-  height: 70px;
+  height: 100%;
   object-fit: fill;
 }
 
@@ -201,4 +205,9 @@ padding-left: 10px;
 
 .profileForm{
   margin-top: 50px;
+}
+
+.recipeRow{
+  margin-left: 30px;
+  padding-left: 30px;
 }
