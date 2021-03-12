@@ -16,6 +16,7 @@
           }
       this.handleInput = this.handleInput.bind(this);
       this.handleRegistration = this.handleRegistration.bind(this);
+      this.createProfile = this.createProfile.bind(this);
         }
 
     handleInput(event){
@@ -44,6 +45,30 @@
     }
 
 
+
+async createProfile(){
+
+
+  let formData = new FormData();
+  formData.append('user', 1);
+
+  const options = {
+    method: 'POST',
+    headers: {
+      'X-CSRFToken': Cookies.get('csrftoken'),
+    },
+    body: formData,
+  }
+
+  await fetch('/profiles/', options);
+  }
+
+
+
+
+
+
+
         render(){
 
     const registerForm = (<form onSubmit={(e) => this.handleRegistration(e, this.state)}>
@@ -66,6 +91,7 @@
           return(
             <div className="registerForm">
             {this.state.isLoggedIn === false || !localStorage.getItem('user') ? registerForm : profileForm}
+            {profileCreate}
             </div>
           );
         }
