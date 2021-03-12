@@ -40,7 +40,6 @@ reset(){
     if(data.key) {
     Cookies.set('Authorization', `Token ${data.key}`);
     localStorage.setItem('user', this.state.username)
-    console.log(data)
     }
     this.reset();
   }

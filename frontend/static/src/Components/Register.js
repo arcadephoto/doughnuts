@@ -14,6 +14,7 @@
             password1: "",
             password2: "",
             data: [],
+            hasProfile: false,
           }
       this.handleInput = this.handleInput.bind(this);
       this.handleRegistration = this.handleRegistration.bind(this);
@@ -25,7 +26,6 @@
           .then(response => response.json())
           .then(response => this.setState({data: response}));
                         }
-
 
 
 
@@ -82,7 +82,6 @@ async createProfile(){
 
         render(){
 
-          console.log(this.state.data)
 
     const registerForm = (<form onSubmit={(e) => this.handleRegistration(e, this.state)}>
           <p>Welcome! Please register to create a profile and submit recipes</p>
@@ -98,14 +97,14 @@ async createProfile(){
     <h5>Member Since: {this.state.data.date}</h5></div>
 
 
-    const profileCreate = <div className="profileCreateForm"><button onClick={this.createProfile}>Create Profile</button></div>
+    const profileCreate = <div className="profileCreateForm"><button className="btn btn-secondary" onClick={this.createProfile}>Create Profile</button></div>
 
 
 
           return(
             <div className="registerForm">
             {this.state.isLoggedIn === false || !localStorage.getItem('user') ? registerForm : profileForm}
-            {profileCreate}
+            {this.state.hasProfile === false ? profileCreate : null}
             </div>
           );
         }

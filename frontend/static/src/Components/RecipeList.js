@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {withRouter} from 'react-router-dom';
 import Cookies from 'js-cookie';
 import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -15,7 +16,14 @@ class RecipeList extends Component{
 
 
 componentDidMount(){
-    fetch("/recipes/")
+    let url;
+    if(this.props.match.params.category) {
+      url = `/recipes/?category=${this.props.match.params.category}`
+    } else {
+      url = `/recipes/`
+    }
+
+    fetch(url)
       .then(response => response.json())
       .then(response => this.setState({data: response}));
             }
@@ -23,28 +31,28 @@ componentDidMount(){
 
 render() {
 const recipeList = this.state.data.map((data) => (
-  <a href={`/recipes/${data.id}`} className="card" key={data.id}>
+  <a href={`/recipes/detail/${data.id}`} className="card" key={data.id}>
   <img className="foodPhoto" src={data.profile_picture} alt="food"/>
   <h6>{data.title}</h6>
   </a>
 ))
 
 const publicRecipes = this.state.data.filter(data => data.category === 'Public').map((data)=> (
-  <a href={`/recipes/${data.id}`} className="card" key={data.id}>
+  <a href={`/recipes/detail/${data.id}`} className="card" key={data.id}>
   <img className="foodPhoto" src={data.profile_picture} alt="food"/>
   <h6>{data.title}</h6>
   </a>
 ))
 
 const popularRecipes = this.state.data.filter(data => data.category === 'Popular').map((data)=> (
-  <a href={`/recipes/${data.id}`} className="card" key={data.id}>
+  <a href={`/recipes/detail/${data.id}`} className="card" key={data.id}>
   <img className="foodPhoto" src={data.profile_picture} alt="food"/>
   <h6>{data.title}</h6>
   </a>
 ))
 
 const favoriteRecipes = this.state.data.filter(data => data.category === 'Favorite').map((data)=> (
-  <a href={`/recipes/${data.id}`} className="card" key={data.id}>
+  <a href={`/recipes/detail/${data.id}`} className="card" key={data.id}>
   <img className="foodPhoto" src={data.profile_picture} alt="food"/>
   <h6>{data.title}</h6>
   </a>
@@ -52,23 +60,23 @@ const favoriteRecipes = this.state.data.filter(data => data.category === 'Favori
 
 
 const pantryRecipes = this.state.data.filter(data => data.category === 'Pantry').map((data)=> (
-  <a href={`/recipes/${data.id}`} className="card" key={data.id}>
+  <a href={`/recipes/detail/${data.id}`} className="card" key={data.id}>
   <img className="foodPhoto" src={data.profile_picture} alt="food"/>
   <h6>{data.title}</h6>
   </a>
 ))
 
 
-const recipeListHead = <p onClick={this.seeAll}>All Recipes -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------View All</p>
-const publicListHead = <p onClick={this.seeAll}>Public Recipes ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------View All</p>
-const popularListHead = <p onClick={this.seeAll}>Popular Recipes -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------View All</p>
-const favoriteListHead = <p onClick={this.seeAll}>Favorite Recipes -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------View All</p>
-const pantryListHead = <p onClick={this.seeAll}>Pantry Recipes -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------View All</p>
+const recipeListHead = <p onClick={this.seeAll}>All Recipes --------------------------------------------------------------------------------------------------------------------------------------------------------------------View All</p>
+const publicListHead = <p onClick={this.seeAll}>Public Recipes -------------------------------------------------------------------------------------------------------------------------------------------------------------------View All</p>
+const popularListHead = <p onClick={this.seeAll}>Popular Recipes ----------------------------------------------------------------------------------------------------------------------------------------------------------------View All</p>
+const favoriteListHead = <p onClick={this.seeAll}>Favorite Recipes ----------------------------------------------------------------------------------------------------------------------------------------------------------------View All</p>
+const pantryListHead = <p onClick={this.seeAll}>Pantry Recipes ----------------------------------------------------------------------------------------------------------------------------------------------------------------View All</p>
 
 
 
   return (
-    <div className="container">
+    <div>
     <div className="row listHead">
       {recipeListHead}
       </div>
@@ -99,9 +107,9 @@ const pantryListHead = <p onClick={this.seeAll}>Pantry Recipes -----------------
       <div className="row">
       {pantryRecipes}
       </div>
-    </div>
+      </div>
   );
 }
 }
 
-export default RecipeList;
+export default withRouter(RecipeList);

@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {withRouter} from 'react-router-dom';
 import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -14,7 +15,7 @@ class RecipeDetail extends Component{
 }
 
 componentDidMount(){
-    fetch("")
+    fetch(`/recipes/${this.props.match.params.id}/`)
       .then(response => response.json())
       .then(response => this.setState({data: response}));
             }
@@ -63,4 +64,4 @@ const instructions = <div id="instructions">
 }
 }
 
-export default RecipeDetail;
+export default withRouter(RecipeDetail);

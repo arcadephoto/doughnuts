@@ -24,6 +24,7 @@
 
 .card:hover{
 cursor: pointer;
+opacity: 50%;
 }
 
 .card p, h6{
@@ -55,24 +56,47 @@ a:hover{
   color: gray;
 }
 
+.navbar a:link{
+  text-decoration: none;
+  color: gray;
+
+}
+
+.navbar a:hover{
+  text-decoration: none;
+  color: lightgray;
+}
 .vertNav{
   background-image: linear-gradient(whitesmoke, lightgray);
   margin-left: 20px;
   text-align: center;
   text-shadow: 2px 2px 2px darkgray;
-  padding-top: 60px;
   font-style: italic;
   box-shadow: 5px 5px 5px 5px darkgray;
   font-family: 'Times New Roman', serif;
 }
 
-.vertNav p{
+.vertNav a{
   color: gray;
   font-style: italic;
-  margin-top: 80px;
-
 }
 
+
+
+.navBox{
+  margin-top: 60px;
+  height: 60px;
+  width: 60px;
+  border-bottom: 1px solid darkgray;
+}
+
+.navBox a:link{
+  text-decoration: none;
+}
+
+.navBox a:hover{
+  color: lightgray;
+}
 
 .recipeCard{
   background-image: linear-gradient(whitesmoke, lightgray);

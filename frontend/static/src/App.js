@@ -59,8 +59,14 @@ const welcomeUser = localStorage.getItem('user') ? <p>Welcome, {localStorage.get
     <React.Fragment>
     <Switch>
       <Route path="/recipes/add/" component={RecipeForm}/>
-      <Route path="/recipes/:id/" children={<RecipeDetail activeId={this.state.activeId}/>}/>
-      <Route path="/recipes/" children={<RecipeList expandRecipe = {this.expandRecipe} state={this.state}/>}/>
+
+      <Route path="/recipes/detail/:id">
+        <RecipeDetail activeId={this.state.activeId}/>
+      </Route>
+
+      <Route path="/recipes/:category?" >
+        <RecipeList expandRecipe={this.expandRecipe} state={this.state}/>
+      </Route>
       <Route path="/profiles/" component={Register}/>
       <Route path="/login/" component={Login}/>
       <Route path="/logout/" children={<LogOut logOut={this.state.logOut}/>}/>

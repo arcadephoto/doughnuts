@@ -62,12 +62,18 @@ addStep(e){
 
 async handleSubmit(e){
   e.preventDefault();
-
+  // let formData = new FormData();
+  // let obj = {...this.state}
+  // obj.ingredientList = JSON.stringify(obj.ingredientList)
+  // for (const prop in obj){
+  //   formData.append(prop, obj[prop]);
+  // };
 
   let formData = new FormData();
-  let obj = this.state
+  let obj = {...this.state}
+  obj.ingredientList = JSON.stringify(obj.ingredientList)
   for (const prop in obj){
-    formData.append(prop, this.state[prop]);
+    formData.append(prop, obj[prop]);
   };
 
   const options = {
