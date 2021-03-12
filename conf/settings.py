@@ -29,7 +29,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
 '127.0.0.1',
-'ccs-doughnuts.herokuapp.com'
+'ccs-doughnuts.herokuapp.com',
 ]
 
 
